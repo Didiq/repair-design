@@ -336,6 +336,28 @@ template {
     background: transparent;
     color: #fff; }
 
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Futura Book', sans-serif;
+  font-size: 14px; }
+
+.section-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Yeseva One', cursive; }
+  .section-title__image {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .section-title__image::before, .section-title__image::after {
+      content: '';
+      width: 32px;
+      height: 2px;
+      background-color: #E3B873;
+      margin: 0 10px; }
+
 .container {
   width: 85%;
   max-width: 1256px;
@@ -380,12 +402,15 @@ template {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  padding-top: 100px;
   background: #131313 url("../img/hero-bg.jpg") no-repeat center/cover;
   height: 100vh;
   color: #fff; }
   .hero::before {
     content: '';
     position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(19, 19, 19, 0.7); }
@@ -452,10 +477,3 @@ template {
   font-size: 40px; }
   .title--primary {
     color: #E3B873; }
-
-*, *:before, *:after {
-  box-sizing: border-box; }
-
-body {
-  font-family: 'Futura Book', sans-serif;
-  font-size: 14px; }
