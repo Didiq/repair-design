@@ -22,11 +22,31 @@ $(document).ready(function () {
   var modal = $('.modal'),
       modalBtn = $('[data-toggle="modal"]'),
       closeBtn = $('.modal__close');
+  const  switchModal = () => {
+        modal.toggleClass('modal--visible');
+  };
 
-  modalBtn.click(function() {
-    modal.toggleClass('modal--visible');
-  });
-  closeBtn.click(function() {
-    modal.toggleClass('modal--visible');
-  });
+  modalBtn.click(switchModal);
+  closeBtn.click(switchModal);
+
+  var mySwiper = new Swiper ('.swiper-container', {
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  })
+
+  var next = $('.swiper-button-next');
+  var prev = $('.swiper-button-prev');
+  var bullets = $('.swiper-pagination');
+  var arrowSpace = 20;
+
+  next.css('left', prev.width() + arrowSpace + bullets.width() + arrowSpace)
+  bullets.css('left', prev.width() + arrowSpace)
+
 });
