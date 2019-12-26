@@ -827,7 +827,20 @@ img {
   .hero__button {
     display: block;
     min-width: 22.86rem;
-    margin-bottom: 1.85rem; } }
+    margin-bottom: 1.85rem; }
+  .control {
+    background-color: #131313;
+    color: #fff; }
+    .control__input-group {
+      flex-basis: 100%;
+      margin-top: 4.5rem; }
+    .control__policy-label {
+      justify-content: flex-start;
+      margin-top: 1.857rem; }
+    .control__button {
+      order: 4;
+      margin-top: 4.5rem;
+      padding: 1.2857rem 8.857rem; } }
 
 @media screen and (max-height: 520px) {
   .hero__scroll-down {
