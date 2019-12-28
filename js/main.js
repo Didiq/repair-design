@@ -1,23 +1,3 @@
-// нативный JavaScript
-
-// document.addEventListener("DOMContentLoaded", (event) => {
-//   const modal = document.querySelector('.modal');
-//   const modalButton = document.querySelectorAll('[data-toggle]');
-//   const closeButton = document.querySelector('.modal__close');
-//   const switchModal = () => {
-//     modal.classList.toggle('modal--visible');
-//   }
-//   modalButton.forEach(element => {
-//     element.addEventListener('click', switchModal);
-//   });
-
-//   closeButton.addEventListener('click', switchModal);
-
-// });
-
-
-// jQuery 
-
 $(document).ready(function () {
   var modal = $('.modal'),
       modalBtn = $('[data-toggle="modal"]'),
@@ -50,5 +30,37 @@ $(document).ready(function () {
   bullets.css('left', prev.width() + arrowSpace)
 
   new WOW().init();
+
+  // валидация формы
+  $('.modal__form').validate({
+    errorClass: "invalid",
+    rules: {
+      // simple rule, converted to {required:true}
+      userName: {
+        required: true,
+        minlength: 2
+      },
+      userPhone: "required",
+      // compound rule
+      userEmail: {
+        required: true,
+        email: true
+      }
+    },
+    messages: {
+      userName: {
+        required: "Имя обязательно",
+        minlength: "Имя не короче двух букв"
+      },
+      userPhone: "Телефон обязателен",
+      userEmail: {
+        required: "Обязательно укажите email",
+        email: "Введите в формате: name@domain.com"
+      }
+    }
+  });
+
+  // маска для телефона
+  $('[type=tel]').mask('+7(000) 000-00-00', {placeholder: "+7(___) ___-__-__"}); 
 
 });
