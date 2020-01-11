@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var modal = $('.modal'),
+  var modal = $('.modal--application'),
       modalBtn = $('[data-toggle="modal"]'),
       closeBtn = $('.modal__close');
   const  switchModal = () => {
@@ -57,6 +57,20 @@ $(document).ready(function () {
         required: "Обязательно укажите email",
         email: "Введите в формате: name@domain.com"
       }
+    },
+    submitHandler: function(form) {
+      $.ajax({
+        type: "POST",
+        url: "send.php",
+        data: $(form).serialize(),
+        success: function (response) {
+          var modalThanks = $('modal--thanks');
+
+          $(form)[0].reset();
+          modal.removeClass('modal--visible');
+          modalThanks.toggleClass('modal--visible');
+        }
+      });
     }
   });
 
